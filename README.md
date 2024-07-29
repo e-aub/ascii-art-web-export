@@ -41,7 +41,7 @@ The application consists of the following main components:
 `AsciiHandler:` Handles POST requests to /ascii-art to generate ASCII art. It validates the banner style, generates ASCII art using the asciiArt package, and handles errors appropriately.
 ### Endpoints
 `GET /:` Serves the main page with a form for user input. This uses Go templates to render the page.
-`POST /ascii-art:` Accepts form data (text and banner) and generates ASCII art. Redirects to the home page or displays an error based on the result.
+`POST \/ascii-art:` Accepts form data (text and banner) and generates ASCII art. Redirects to the home page or displays an error based on the result.
 ### Error Handling
 `500 Internal Server Error:` Returned if there is an issue during ASCII art generation.
 `400 Bad Request:` Returned if the provided banner is invalid.
