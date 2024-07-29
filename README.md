@@ -11,7 +11,7 @@
 
 ## Authors
 
-- [Your Name](https://github.com/yourusername)
+- [Ayoub El Haddad](https://learn.zone01oujda.ma/git/aelhadda)
 
 ## Usage
 
@@ -19,4 +19,5 @@ To run the `ascii-art-web` server:
 
 1. Clone the repository:
    ```sh
-   git clone https://learn.zone01oujda.ma/git/mouchkhi/ascii-art-web
+   git clone https://github.com/e-aub/ascii-art-web
+   ```
