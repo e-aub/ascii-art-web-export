@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ascii-art-web</title>
+    </head>
+    <body>
+        <h1>ascii-art-web</h1>
+        <form  action="/ascii-art" method="post">
+            <label for="text"></label>
+            <textarea name="text" id="text" placeholder="enter the text you want to convert to ascii-art" rows="5" cols="50" required></textarea><br>
+            <label for="banner"></label>
+            <select name="banner" id="banner" required>
+                <option selected value="standard.txt" >standard</option>
+                <option value="shadow.txt">shadow</option>
+                <option value="thinkertoy.txt">thinkertoy</option>
+                <option value="enigma.txt">enigma</option>
+                <option value="nirvana.txt">nirvana</option>
+                <option value="arial.txt">arial</option>
+            </select>
+            <label for="submit"></label>
+            <input type="submit" id="submit">
+        </form>
+        <pre>{{.}}</pre>
+    </body>
+</html>
