@@ -20,7 +20,13 @@
             </select>
             <label for="submit"></label>
             <input type="submit" id="submit">
+            <h4 style="color:red;">Note that this tool only accepts characters within the range of ' ' to '~' and the newline character (line break) '\n'.</h4>
         </form>
-        <pre>{{.}}</pre>
+        {{if .DownloadButton}}
+        <form action="/export" method="get">
+        <button type="submit">Download</button>
+        </form>
+        {{end}}
+        <pre>{{.Art}}</pre>
     </body>
 </html>

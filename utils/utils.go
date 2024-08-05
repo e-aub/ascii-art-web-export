@@ -8,9 +8,14 @@ type FormValues struct {
 	Banner string
 }
 
+type Datas struct {
+	Art            string
+	DownloadButton bool
+}
+
 // Art variable that will hold ascii art and banners array to validate banners
 var (
-	Art     string
+	Data    Datas
 	Banners [5]string
 )
 

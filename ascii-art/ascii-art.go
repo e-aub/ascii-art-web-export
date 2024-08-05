@@ -21,5 +21,4 @@ func AsciiArt(text string, banner string) (string, error) {
 	slicedToWrite := f.Split(text)
 	art := f.OutputBuilder(slicedToWrite)
 	return art, nil
-
 }

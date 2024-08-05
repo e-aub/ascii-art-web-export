@@ -20,14 +20,20 @@ func AsciiHandler(w http.ResponseWriter, r *http.Request) {
 		if utils.IsBanner(form.Banner) {
 			var err error
 			// generate ascii art
-			utils.Art, err = asciiArt.AsciiArt(form.Text, form.Banner)
+			utils.Data.Art, err = asciiArt.AsciiArt(form.Text, form.Banner)
 			// if an error occured while generating ascii art response with status 500 and a message
 			if err != nil {
 				w.WriteHeader(http.StatusInternalServerError)
 				w.Write([]byte("Internal server error"))
 				return
 			}
+			// Set cookie
+			textCookie := http.Cookie{Name: "text", Value: form.Text, MaxAge: 3600}
+			bannerCookie := http.Cookie{Name: "banner", Value: form.Banner, MaxAge: 3600}
+			http.SetCookie(w, &textCookie)
+			http.SetCookie(w, &bannerCookie)
 			// if the art is generated succusfully redirect to home page
+			utils.Data.DownloadButton = true
 			http.Redirect(w, r, "/", http.StatusSeeOther)
 			return
 		}
