@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"fmt"
 	"net/http"
 
 	asciiArt "ascii-art-web/ascii-art"
@@ -28,8 +29,9 @@ func AsciiHandler(w http.ResponseWriter, r *http.Request) {
 				return
 			}
 			// Set cookie
-			textCookie := http.Cookie{Name: "text", Value: form.Text, MaxAge: 3600}
-			bannerCookie := http.Cookie{Name: "banner", Value: form.Banner, MaxAge: 3600}
+			textCookie := http.Cookie{Name: "text", Value: form.Text, Path: "/export", MaxAge: 3600}
+			bannerCookie := http.Cookie{Name: "banner", Value: form.Banner, Path: "/export", MaxAge: 3600}
+			fmt.Println(textCookie, bannerCookie)
 			http.SetCookie(w, &textCookie)
 			http.SetCookie(w, &bannerCookie)
 			// if the art is generated succusfully redirect to home page

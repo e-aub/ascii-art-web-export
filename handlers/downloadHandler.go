@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"fmt"
 	"net/http"
+	"time"
 
 	asciiArt "ascii-art-web/ascii-art"
 )
@@ -40,6 +41,10 @@ func DownloadHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=UTF-8")
 	contentLen := buffer.Len()
 	w.Header().Set("Content-Length", fmt.Sprintf("%d", contentLen))
-	w.Header().Set("Content-Disposition", "attachment; filename=\"filename.html\"")
+	// w.Header().Set("Content-Disposition", "attachment; filename=\"filename.html\"")
 	w.Write(buffer.Bytes())
+	textCookieReset := http.Cookie{Name: "text", Value: "", Expires: time.Unix(0, 0)}
+	bannerCookieReset := http.Cookie{Name: "banner", Value: "", Expires: time.Unix(0, 0)}
+	http.SetCookie(w, &textCookieReset)
+	http.SetCookie(w, &bannerCookieReset)
 }
